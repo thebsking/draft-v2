@@ -25,8 +25,8 @@ async function seed(){
     },
   });
 
-  await prisma.player.create({
-    data:
+  await prisma.player.createMany({
+    data:[
       {
         rank: "1",
         name: "Christian McCaffrey",
@@ -34,20 +34,16 @@ async function seed(){
         position: "RB",
         byeWeek: "13",
         teamId: team.id
-        },
+        },{
+          rank: "2",
+          name: "Jonathan Taylor",
+          nflTeam: "IND",
+          position: "RB",
+          byeWeek: "14",
+          teamId: team.id
+          }
+        ]
   })
-
-  await prisma.player.create({
-    data:  {
-      rank: "2",
-      name: "Jonathan Taylor",
-      nflTeam: "IND",
-      position: "RB",
-      byeWeek: "14",
-      teamId: team.id
-      }
-  })
-
 }
 
 seed()
