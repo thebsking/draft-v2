@@ -40,7 +40,7 @@ model Player {
   byeWeek  String
   
   fantasyTeam Team  @relation(fields: [teamId], references: [id])
-  teamId Int   
+  teamId Int  @default(1)
 }
 
 model Team {
@@ -50,4 +50,21 @@ model Team {
   owner User @relation(fields: [userId], references: [id])
   userId  String @unique
   players Player[] 
+}
+
+model Draft {
+  id  String @id @default(cuid())
+  roundCount  Int
+  playerCount Int
+  picks Pick[]
+}
+
+model Pick {
+  id  Int @id @default(autoincrement())
+
+  roundId Int
+  pickId  Int 
+
+  draft Draft @relation(fields: [draftId], references: [id])
+  draftId String @unique
 }

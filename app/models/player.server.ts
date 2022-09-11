@@ -1,0 +1,26 @@
+import type { Player } from "@prisma/client";
+
+import { prisma } from "~/db.server";
+
+export type { Player } from "@prisma/client";
+
+export async function getAvailablePlayers() {
+  return prisma.player.findMany({
+    where: { teamId: 1 },
+    orderBy: { rank: 'asc' }
+  });
+}
+
+export async function getPlayersByBye(byeWeek: Player["byeWeek"]) {
+  return prisma.player.findMany({
+    where: { byeWeek },
+    orderBy: { rank: 'asc' }
+  });
+}
+
+export async function getPlayersByPosition(position: Player["position"]) {
+  return prisma.player.findMany({
+    where: { position },
+    orderBy: { rank: 'asc' }
+  })
+}
