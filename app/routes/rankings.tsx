@@ -25,8 +25,8 @@ export default function Rankings() {
   const { players } = useLoaderData() as unknown as LoaderData;
 
   const posArray = [...new Set(players.map(x => x.position))];
-  const teamArray = [...new Set(players.map(x => x.nflTeam))];
-  const byeArray = [...new Set(players.map(x => x.byeWeek))];
+  const teamArray = [...new Set(players.map(x => x.nflTeam).sort())];
+  const byeArray = [...new Set(players.map(x => x.byeWeek).sort())];
 
   const filterChange = (type: String) => {
     switch(type) {
