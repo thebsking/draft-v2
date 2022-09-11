@@ -7,7 +7,7 @@ export type { Player } from "@prisma/client";
 export async function getAvailablePlayers() {
   return prisma.player.findMany({
     where: { teamId: 1 },
-    orderBy: { rank: 'asc' }
+    orderBy: { id: 'asc' }
   });
 }
 
