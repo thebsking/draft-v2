@@ -24,3 +24,17 @@ export async function getPlayersByPosition(position: Player["position"]) {
     orderBy: { rank: 'asc' }
   })
 }
+
+export async function getPlayersByNflTeam(nflTeam: Player["nflTeam"]){
+  return prisma.player.findMany({
+    where: {nflTeam},
+    orderBy: {rank: 'asc'}
+  })
+}
+
+export async function getPlayersByFantasyTeam(teamId: Player["teamId"]){
+  return prisma.player.findMany({
+    where: {teamId},
+    orderBy: {rank: 'asc'}
+  })
+}

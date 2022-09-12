@@ -48,7 +48,7 @@ export default function Rankings() {
     <div className="content">
       <h1>Rankings Page</h1>
       <div id="filters">
-        <select id="filter-type" onChange={(e) => {
+        <select id="player-filters" onChange={(e) => {
             setFilterType(e.target.value)
             filterChange(e.target.value)
           }} value={filterType}>
