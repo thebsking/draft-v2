@@ -1,6 +1,6 @@
 import React,{ useState } from "react";
 import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Outlet, useLoaderData } from "@remix-run/react";
 import { getAvailablePlayers } from "~/models/player.server";
 
 import styles from "~/styles/rankings.css";
@@ -13,6 +13,7 @@ type LoaderData = {
 };
 
 export const loader = async () => {
+  
   return json<LoaderData>({
     players: await getAvailablePlayers()
   });
@@ -21,6 +22,7 @@ export const loader = async () => {
 export default function Rankings() {
   const [filterType, setFilterType] = useState("Choose Filter");
   const [subType, setSubType] = React.useState<string[]>([]);
+  const [subFilter, setSubFilter] = useState("")
   const filterOptions = ["Team", "Position", "Bye Week"];
   const { players } = useLoaderData() as unknown as LoaderData;
 
@@ -59,7 +61,9 @@ export default function Rankings() {
             )
           })}
         </select>
-        <select>
+        <select id="sub-filter" onChange={(e) => {
+          setSubFilter(e.target.value)
+        }}>
           <option>{filterType} </option>
           {subType.map((x,i)=> {
             return (
@@ -67,35 +71,14 @@ export default function Rankings() {
             )
           })}
         </select>
+        <button onClick={
+          () => window.location.replace(`/rankings/${filterType}/${subFilter}`)
+          } >
+          Filter
+        </button>
+        <button onClick={() => window.location.replace('/rankings/')}>Clear</button>
       </div>
-      <div id="rank-table">
-        <table>
-          <thead>
-            <tr>
-              <td>Rank</td>
-              <td>Player</td>
-              <td>NFL Team</td>
-              <td>Position</td>
-              <td>Bye Week</td>
-              <td>Options</td>
-            </tr>
-          </thead>
-          <tbody>
-            {players.map((x, i) => {
-              return (
-                <tr key={i} id={x.id.toString()}>
-                  <td>{x.rank}</td>
-                  <td>{x.name}</td>
-                  <td>{x.nflTeam}</td>
-                  <td>{x.position}</td>
-                  <td>{x.byeWeek}</td>
-                  <td><button>Draft</button> <button>Favorite</button></td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </div>
+      <Outlet />
     </div>
   )
 }

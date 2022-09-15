@@ -56,5 +56,11 @@ export async function verifyLogin(
 }
 
 export async function getAllUsers(){
-  return prisma.user.findMany();
+  return prisma.user.findMany({
+    where: {
+      NOT: {
+        name: 'Test user'
+      }
+    }
+  });
 }

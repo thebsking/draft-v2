@@ -27,7 +27,7 @@ export async function getPlayersByPosition(position: Player["position"]) {
 
 export async function getPlayersByNflTeam(nflTeam: Player["nflTeam"]){
   return prisma.player.findMany({
-    where: {nflTeam},
+    where: {nflTeam: nflTeam},
     orderBy: {rank: 'asc'}
   })
 }
