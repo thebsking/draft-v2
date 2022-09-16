@@ -2,6 +2,7 @@ import React,{ useState } from "react";
 import { json } from "@remix-run/node";
 import { Outlet, useLoaderData } from "@remix-run/react";
 import { getAvailablePlayers } from "~/models/player.server";
+import Header from "~/components/Header";
 
 import styles from "~/styles/rankings.css";
 export function links() {
@@ -47,6 +48,8 @@ export default function Rankings() {
   }
 
   return (
+    <>
+    <Header />
     <div className="content">
       <h1>Rankings Page</h1>
       <div id="filters">
@@ -80,5 +83,6 @@ export default function Rankings() {
       </div>
       <Outlet />
     </div>
+    </>
   )
 }

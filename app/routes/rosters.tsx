@@ -2,6 +2,7 @@ import { json } from "@remix-run/node";
 import { Outlet, useLoaderData } from "@remix-run/react";
 import { useState } from "react";
 import { getAllUsers } from "~/models/user.server";
+import Header from "~/components/Header"
 
 type LoaderData = {
   owners: Awaited<ReturnType<typeof getAllUsers>>;
@@ -23,6 +24,8 @@ export default function Rosters() {
   }
 
   return (
+    <>
+    <Header />
     <div className="content">
       <h1>Team Roster</h1>
       <div id="user-filter">
@@ -41,5 +44,6 @@ export default function Rosters() {
         <Outlet />
       </div>
     </div>
+    </>
   )
 }

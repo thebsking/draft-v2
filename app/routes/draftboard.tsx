@@ -1,3 +1,4 @@
+import Header from "~/components/Header";
 import styles from "~/styles/draftboard.css";
 
 export function links() {
@@ -6,7 +7,9 @@ export function links() {
 
 export default function DraftBoard() {
   return (
-    <div>
+    <>
+    <Header />
+    <div className="content">
       <table>
         <thead>
           <tr>
@@ -34,5 +37,6 @@ export default function DraftBoard() {
         </tbody>
       </table>
     </div>
+    </>
   )
 }

@@ -1,18 +1,10 @@
-table {
-  margin: auto;
-}
-td {
-  border: solid 1px black;
-  padding: 10px;
-  text-align: center;
-}
 .nav-btn {
   padding: 5px;
   background-color: green;
   color: white;
 }
 
-#main-nav {
+nav {
   background-color: blue;;
   display: flex;
   flex-direction: column;

@@ -1,6 +1,10 @@
+import Header
+ from "~/components/Header";
 export default function Index() {
   const year = new Date().getFullYear();
   return (
+    <>
+    <Header />
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
       <h1>Nelson's Fantasy Playground Draft {year}</h1>
       <ul>
@@ -29,5 +33,6 @@ export default function Index() {
         </li>
       </ul>
     </div>
+    </>
   );
 }
