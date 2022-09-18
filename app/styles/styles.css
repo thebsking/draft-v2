@@ -6,6 +6,26 @@ td {
   padding: 10px;
   text-align: center;
 }
+a {
+  text-decoration: none;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input {
+  height: 25px;
+  max-width: 50%;
+}
+select {
+  height: 25px;
+  max-width: 50%;
+}
+.content {
+  max-width: 80%;
+  margin: 5px auto 5px auto;
+}
 .white {
   color: white;
 }
@@ -18,7 +38,14 @@ td {
   text-decoration: none;
   text-align: center;
 }
-
+.form-btn{
+  background-color: blue;
+  color: white;
+  height: 25px;
+  width: fit-content;
+  border-radius: 5px;
+  margin: 5px;
+}
 #header {
   background-color: blue;
   display: flex;
