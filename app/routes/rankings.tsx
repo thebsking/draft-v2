@@ -4,11 +4,6 @@ import { Outlet, useLoaderData } from "@remix-run/react";
 import { getAvailablePlayers } from "~/models/player.server";
 import Header from "~/components/Header";
 
-import styles from "~/styles/rankings.css";
-export function links() {
-  return [{ rel: 'stylesheet', href: styles }]
-}
-
 type LoaderData = {
   players: Awaited<ReturnType<typeof getAvailablePlayers>>;
 };

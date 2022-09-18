@@ -1,0 +1,32 @@
+table {
+  margin: auto;
+}
+td {
+  border: solid 1px black;
+  padding: 10px;
+  text-align: center;
+}
+.white {
+  color: white;
+}
+
+.nav-btn {
+  border: 1px solid green;
+  color: white;
+  background-color: green;
+  margin: 1px;
+  text-decoration: none;
+  text-align: center;
+}
+
+#header {
+  background-color: blue;
+  display: flex;
+  justify-content: space-between;
+}
+
+#main-nav {
+  display: flex;
+  justify-content: end;
+  padding: 5px;
+}

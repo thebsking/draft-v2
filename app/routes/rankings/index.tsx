@@ -4,11 +4,6 @@ import { useLoaderData } from "@remix-run/react";
 import { getAvailablePlayers } from "~/models/player.server";
 import type { Player } from "~/models/player.server";
 
-import styles from "~/styles/rankings.css";
-
-export function links() {
-  return [{ rel: 'stylesheet', href: styles }]
-}
 
 type LoaderData = {players: Player[]};
 

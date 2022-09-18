@@ -1,9 +1,4 @@
 import Header from "~/components/Header";
-import styles from "~/styles/draftboard.css";
-
-export function links() {
-  return [{ rel: 'stylesheet', href: styles }]
-}
 
 export default function DraftBoard() {
   return (
