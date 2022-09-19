@@ -37,6 +37,11 @@ select {
   margin: 1px;
   text-decoration: none;
   text-align: center;
+  padding: 25px 15px;
+}
+.nav-btn:hover{
+  background-color: black;
+  color: red;
 }
 .form-btn{
   background-color: blue;
