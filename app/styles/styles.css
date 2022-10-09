@@ -29,7 +29,9 @@ select {
 .white {
   color: white;
 }
-
+.no-drop{
+  min-width: fit-content;
+}
 .nav-btn {
   border: 1px solid green;
   color: white;
@@ -50,6 +52,13 @@ select {
   width: fit-content;
   border-radius: 5px;
   margin: 5px;
+}
+.form-group{
+  display: flex;
+}
+.form-row {
+  display: flex;
+  flex-direction: column;
 }
 #header {
   background-color: blue;

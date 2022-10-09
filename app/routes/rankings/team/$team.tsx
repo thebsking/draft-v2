@@ -6,7 +6,6 @@ import type { Player } from "~/models/player.server";
 
 import invariant from "tiny-invariant";
 
-
 type LoaderData = { players: Player[] };
 
 export const loader: LoaderFunction = async ({

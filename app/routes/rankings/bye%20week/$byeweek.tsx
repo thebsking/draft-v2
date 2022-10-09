@@ -18,7 +18,7 @@ export const loader: LoaderFunction = async ({
 };
 
 
-export default function TeamRanking() {
+export default function ByeRanking() {
   const { players } = useLoaderData() as unknown as LoaderData;
 
   return (
